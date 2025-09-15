@@ -2,6 +2,7 @@
 
 namespace TallinnaRakenduslikColllegeTARpe24_ChristoferKrabbi.Data
 {
+
     public class DbInitilizer
     {
         public static void Initializer(SchoolContext context)

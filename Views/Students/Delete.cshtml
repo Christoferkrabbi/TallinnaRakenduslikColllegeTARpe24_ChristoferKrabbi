@@ -1,29 +1,89 @@
 ﻿@model TallinnaRakenduslikColllegeTARpe24_ChristoferKrabbi.Models.Student
 
 @{
-	ViewData["Title"] = "Kustuta õpilane";
+    ViewData["Title"] = "Kustuta õpilane";
 }
 
-@if (Model.Enrollments !=null)
-{
-	foreach (var courseEnrollment in Model.Enrollments)
-	{
-		<dl class="row">
-			<dd class="col-sm-10">@(courseEnrollment)</dd>
-		</dl>
-	}
-}
-@if(Model.DeepBackstory != null)
-{
-	@Model.DeepBackstory;
-}
-@if (Model.Images != null)
-{
-	foreach (var courseEnrollment in Model.Images)
-	{
-		
-		<dl class="row">
-			<dd class="col-sm-10">PlaceholderText</dd>
-		</dl>
-	}
-}
+<h1>Kustuta õpilane</h1>
+
+<h3>Kas oled kindel, et soovid õpilast @Model.FirstName @Model.LastName eemaldada?</h3>
+<div>
+    <h4>Õpilane @Model.FirstName @Model.LastName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DaysSurvived)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DaysSurvived)
+        </dd>
+    </dl>
+
+    @if (Model.Enrollments != null)
+    {
+        foreach (var courseEnrollment in Model.Enrollments)
+        {
+            <dl class="row">
+                <dd class="col-sm-10">@(courseEnrollment)</dd>
+            </dl>
+        }
+    }
+
+    @if (Model.Enrollments != null)
+    {
+        foreach (var courseEnrollment in Model.Enrollments)
+        {
+            <dl class="row">
+                <dd class="col-sm-10">@(courseEnrollment)</dd>
+            </dl>
+        }
+    }
+
+    @if (Model.Age != null)
+    {
+        @Model.Age
+        ;
+    }
+
+    @if (Model.DaysSurvived != null)
+    {
+        @Model.DaysSurvived
+        ;
+    }
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

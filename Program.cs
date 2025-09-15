@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using TallinnaRakenduslikColllegeTARpe24_ChristoferKrabbi.Data;
+
 namespace TallinnaRakenduslikColllegeTARpe24_ChristoferKrabbi
 {
     public class Program
@@ -8,6 +11,10 @@ namespace TallinnaRakenduslikColllegeTARpe24_ChristoferKrabbi
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<SchoolContext>(options => options.UseSqlServer
+             (builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 
             var app = builder.Build();
 
