@@ -3,6 +3,8 @@ namespace TallinnaRakenduslikColllegeTARpe24_ChristoferKrabbi.Models
 {
     public class InstructorIndexData
     {
-        public List<Instructor> Instructors { get; internal set; }
-    }
+		public IEnumerable<Instructor> Instructors { get; set; }
+		public IEnumerable<Course> Courses { get; set; }
+		public IEnumerable<Enrollment> Enrollments { get; set; }
+	}
 }

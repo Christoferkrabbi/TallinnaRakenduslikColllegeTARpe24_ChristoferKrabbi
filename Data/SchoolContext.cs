@@ -16,16 +16,20 @@ namespace TallinnaRakenduslikColllegeTARpe24_ChristoferKrabbi.Data
         //public DbSet<Image> Images { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<CourseAssignment> CourseAssignments { get; set; }
-        //public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+		public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+		public DbSet<Department> Departments { get; set; }
+		//public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().ToTable("Course");
             modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
             modelBuilder.Entity<Instructor>().ToTable("Instructor");
             modelBuilder.Entity<CourseAssignment>().ToTable("CourseAssignment");
-            //modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
-        }
+			modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
+			modelBuilder.Entity<Department>().ToTable("Departments");
+
+		}
     }
 }
